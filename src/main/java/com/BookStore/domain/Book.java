@@ -17,6 +17,12 @@ public class Book {
 	private String isbn;
 	private Integer price;
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -29,10 +35,10 @@ public class Book {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public String getYear() {
+	public String getPubyear() {
 		return pubyear;
 	}
-	public void setYear(String pubyear) {
+	public void setPubyear(String pubyear) {
 		this.pubyear = pubyear;
 	}
 	public String getIsbn() {
