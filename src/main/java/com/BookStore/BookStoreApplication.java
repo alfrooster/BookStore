@@ -9,6 +9,8 @@ import com.BookStore.domain.Book;
 import com.BookStore.domain.BookRepository;
 import com.BookStore.domain.Category;
 import com.BookStore.domain.CategoryRepository;
+import com.BookStore.domain.Bookuser;
+import com.BookStore.domain.UserRepository;
 
 @SpringBootApplication
 public class BookStoreApplication {
@@ -18,7 +20,7 @@ public class BookStoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository){
+	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository, UserRepository urepository){
 		return (args) -> {
 
 			crepository.save(new Category("Kauhu"));
@@ -29,6 +31,11 @@ public class BookStoreApplication {
 			
 			repository.save(new Book("Veden alla", "Kat Falls", "2011", "9513155064", 9, crepository.findByName("Jännitys").get(0)));
 			repository.save(new Book("Klik", "Tap", "2007", "23434", 7, crepository.findByName("Romanssi").get(0)));
+			
+			Bookuser user1 = new Bookuser("user", "$2a$10$ioKIwNyAa9IJvRBHJOCmwuobVjEpZSirh2D/Qqs2VjLrfUAmrNRtu", "user@bookstore.com", "USER");
+			Bookuser user2 = new Bookuser("admin", "$2a$10$OPE98GAoIjj8b/IQMCxvQuDzUL6UirfwFew0mJ4ukae5JtJB6MAsi", "admin@bookstore.com", "ADMIN");
+			urepository.save(user1);
+			urepository.save(user2);
 			
 		};
 	}
