@@ -78,5 +78,10 @@ public class Bookuser {
 		this.role = role;
 	}
 	
+	@Override
+	public String toString() {
+		return "Bookuser [id=" + id + ", username=" + username + ", passwordHash=" + passwordHash + ", email=" + email
+				+ ", role=" + role + "]";
+	}
 	
 }
