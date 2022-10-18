@@ -22,7 +22,10 @@ public class BookStoreApplication {
 	@Bean
 	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository, UserRepository urepository){
 		return (args) -> {
-
+			
+			urepository.deleteAll();
+			crepository.deleteAll();
+			
 			crepository.save(new Category("Kauhu"));
 			crepository.save(new Category("Jännitys"));
 			crepository.save(new Category("Historia"));
