@@ -24,7 +24,6 @@ public class BookStoreApplication {
 		return (args) -> {
 			
 			urepository.deleteAll();
-			crepository.deleteAll();
 			
 			crepository.save(new Category("Kauhu"));
 			crepository.save(new Category("Jännitys"));
